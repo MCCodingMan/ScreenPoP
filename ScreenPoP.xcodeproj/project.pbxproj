@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		34ABA73F22CDAF6800426395 /* PopGestureRecognizerManagerConfiger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA73B22CDAF6800426395 /* PopGestureRecognizerManagerConfiger.m */; };
-		34ABA74022CDAF6800426395 /* PopGestureRecognizerManagerConfiger.h in Headers */ = {isa = PBXBuildFile; fileRef = 34ABA73C22CDAF6800426395 /* PopGestureRecognizerManagerConfiger.h */; };
-		34ABA74122CDAF6800426395 /* PopGestureRecognizerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 34ABA73D22CDAF6800426395 /* PopGestureRecognizerManager.h */; };
+		34ABA74022CDAF6800426395 /* PopGestureRecognizerManagerConfiger.h in Headers */ = {isa = PBXBuildFile; fileRef = 34ABA73C22CDAF6800426395 /* PopGestureRecognizerManagerConfiger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34ABA74122CDAF6800426395 /* PopGestureRecognizerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 34ABA73D22CDAF6800426395 /* PopGestureRecognizerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34ABA74222CDAF6800426395 /* PopGestureRecognizerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA73E22CDAF6800426395 /* PopGestureRecognizerManager.m */; };
-		34ABA74522CDE64200426395 /* ScreenPoP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ABA74422CDE64200426395 /* ScreenPoP.framework */; };
 		34B947D422CC9E0800457EFC /* ScreenPoP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B947CA22CC9E0800457EFC /* ScreenPoP.framework */; };
 		34B947D922CC9E0800457EFC /* ScreenPoPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B947D822CC9E0800457EFC /* ScreenPoPTests.m */; };
 		34B947DB22CC9E0800457EFC /* ScreenPoP.h in Headers */ = {isa = PBXBuildFile; fileRef = 34B947CD22CC9E0800457EFC /* ScreenPoP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,7 +31,6 @@
 		34ABA73C22CDAF6800426395 /* PopGestureRecognizerManagerConfiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopGestureRecognizerManagerConfiger.h; sourceTree = "<group>"; };
 		34ABA73D22CDAF6800426395 /* PopGestureRecognizerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopGestureRecognizerManager.h; sourceTree = "<group>"; };
 		34ABA73E22CDAF6800426395 /* PopGestureRecognizerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopGestureRecognizerManager.m; sourceTree = "<group>"; };
-		34ABA74422CDE64200426395 /* ScreenPoP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScreenPoP.framework; sourceTree = "<group>"; };
 		34B947CA22CC9E0800457EFC /* ScreenPoP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScreenPoP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B947CD22CC9E0800457EFC /* ScreenPoP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenPoP.h; sourceTree = "<group>"; };
 		34B947CE22CC9E0800457EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34ABA74522CDE64200426395 /* ScreenPoP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,18 +58,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34ABA74322CDE63400426395 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				34ABA74422CDE64200426395 /* ScreenPoP.framework */,
-			);
-			path = Framework;
-			sourceTree = "<group>";
-		};
 		34B947C022CC9E0800457EFC = {
 			isa = PBXGroup;
 			children = (
-				34ABA74322CDE63400426395 /* Framework */,
 				34B947CC22CC9E0800457EFC /* ScreenPoP */,
 				34B947D722CC9E0800457EFC /* ScreenPoPTests */,
 				34B947CB22CC9E0800457EFC /* Products */,
