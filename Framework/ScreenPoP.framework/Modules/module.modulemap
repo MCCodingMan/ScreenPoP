@@ -1,0 +1,6 @@
+framework module ScreenPoP {
+  umbrella header "ScreenPoP.h"
+
+  export *
+  module * { export * }
+}
