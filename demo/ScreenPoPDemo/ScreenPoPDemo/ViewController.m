@@ -29,9 +29,9 @@
 
 - (void)initSomeThing {
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"第一个控制器";
+    self.title = @"这是第一个控制器";
     UIButton *jumpButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [jumpButton setTitle:@"跳第二个" forState:UIControlStateNormal];
+    [jumpButton setTitle:@"跳第二个控制器" forState:UIControlStateNormal];
     [jumpButton addTarget:self action:@selector(jump) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:jumpButton];
     jumpButton.frame = CGRectMake(200, 200, 100, 100);
