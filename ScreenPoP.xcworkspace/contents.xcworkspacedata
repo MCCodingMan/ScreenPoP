@@ -4,7 +4,4 @@
    <FileRef
       location = "group:demo/ScreenPoPDemo/ScreenPoPDemo.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:ScreenPoP.xcodeproj">
-   </FileRef>
 </Workspace>

@@ -16,8 +16,9 @@
 #define Gesture_COLOR_HEXA(rgbValue,a) [UIColor colorWithRed:((float)(((rgbValue) & 0xFF0000) >> 16))/255.0 green:((float)(((rgbValue) & 0xFF00)>>8))/255.0 blue: ((float)((rgbValue) & 0xFF))/255.0 alpha:(a)]
 #define Gesture_ImageWithName(imgName) [UIImage imageNamed:imgName]
 #define Gesture_KeyWindow [[UIApplication sharedApplication] delegate].window
+#define PPLog(format, ...) printf("%s",[[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String])
 
-static PopGestureRecognizerManager *manager;
+static PopGestureRecognizerManager *manager = nil;
 
 @implementation PopGestureRecognizerManager{
     CAShapeLayer *shapeLayer;
@@ -38,6 +39,17 @@ static PopGestureRecognizerManager *manager;
     return manager;
 }
 
+
+/// 重写单例对象的alloc方法, 防止单例对象被重复创建
++ (instancetype)alloc {
+    if (manager) {
+        // 如果单例对象存在则抛出异常
+        NSException *exception = [NSException exceptionWithName:@"重复创建单例对象异常" reason:@"单例被重复创建" userInfo:nil];
+        [exception raise];
+    }
+    return [super alloc];
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         _config = [[PopGestureRecognizerManagerConfiger alloc] init];
@@ -52,6 +64,40 @@ static PopGestureRecognizerManager *manager;
     UIScreenEdgePanGestureRecognizer *gesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(screenEdgePanGestureExcuteEvent:)];
     gesture.edges = UIRectEdgeRight;
     [Gesture_KeyWindow addGestureRecognizer:gesture];
+}
+
+- (void)registerManagerWithConfig:(PopGestureRecognizerManagerConfiger *)config completeBlock:(void(^)(BOOL isSuccess))block {
+    self.config = config;
+    if (self.config.returnImageName.length == 0) {
+        if (block) {
+            block(NO);
+        }
+    }else if (self.config.isFollowGesturePosition && self.config.returnImageName.length == 0) {
+        if (block) {
+            block(NO);
+        }
+    }else{
+        if (block) {
+            block(YES);
+        }
+    }
+    
+#if DEBUG
+    PPLog(@"==========Manager注册信息==========\n");
+    PPLog(@"NavigationController:%@\n",self.config.navigationController);
+    PPLog(@"拖动时的背景颜色R:%f G:%f B:%f \n",CGColorGetComponents(self.config.backGroundColor.CGColor)[0],CGColorGetComponents(self.config.backGroundColor.CGColor)[1],CGColorGetComponents(self.config.backGroundColor.CGColor)[2]);
+    PPLog(@"背景颜色Alpha值:%f\n",self.config.backGroundAlpha);
+    PPLog(@"拖动时展示的图片:%@\n",self.config.returnImageName);
+    if (self.config.imageColor) {
+        PPLog(@"拖动时图片的颜色:R:%f G:%f B:%f \n",CGColorGetComponents(self.config.imageColor.CGColor)[0],CGColorGetComponents(self.config.imageColor.CGColor)[1],CGColorGetComponents(self.config.imageColor.CGColor)[2]);
+    }else{
+        PPLog(@"不改变拖动时图片的颜色\n");
+    }
+    PPLog(@"是否跟随手势位置移动:%@\n",self.config.isFollowGesturePosition ? @"是" : @"否");
+    PPLog(@"是否可以返回首页:%@\n",self.config.isCanPopToRootViewController ? @"是" : @"否");
+    PPLog(@"返回首页拖动时展示的图片:%@\n",self.config.returnImageName);
+    PPLog(@"返回首页拖动触发时间:%f\n",self.config.returnHomeTime);
+#endif
 }
 
 /**
@@ -90,9 +136,17 @@ static PopGestureRecognizerManager *manager;
         [shapeLayer addAnimation:anim forKey:nil];
         if (changePoint.x < farPoint.x + 20) {
             if (!isPopToRootController) {
-                [_config.navagationController popViewControllerAnimated:YES];
+                if (self.backActionBlock) {
+                    self.backActionBlock();
+                }else{
+                    [_config.navigationController popViewControllerAnimated:YES];
+                }
             }else{
-                [_config.navagationController popToRootViewControllerAnimated:YES];
+                if (self.backHomeActionBlock) {
+                    self.backHomeActionBlock();
+                }else{
+                    [_config.navigationController popToRootViewControllerAnimated:YES];
+                }
             }
         }
     }
@@ -176,6 +230,11 @@ static PopGestureRecognizerManager *manager;
     }else{
         return image;
     }
+}
+
+- (void)freeBackBlock {
+    self.backActionBlock = nil;
+    self.backHomeActionBlock = nil;
 }
 
 @end

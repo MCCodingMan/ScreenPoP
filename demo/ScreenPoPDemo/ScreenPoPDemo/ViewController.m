@@ -23,7 +23,7 @@
 
 - (void)initScreenPoP {
     PopGestureRecognizerManager *manager = [PopGestureRecognizerManager shareManager];
-    manager.config.navagationController = self.navigationController;
+    manager.config.navigationController = self.navigationController;
     manager.config.returnImageName = @"icon_pop_jt";
 }
 

@@ -14,8 +14,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _navagationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        _backGroundColor = Gesture_COLOR_HEX(0x000000);
+        _backGroundColor = Gesture_COLOR_HEX(0x333333);
         _isFollowGesturePosition = NO;
         _isCanPopToRootViewController = NO;
         _imageColor = nil;
@@ -24,5 +23,13 @@
     }
     return self;
 }
+
+- (UINavigationController *)navigationController {
+    if (_navigationController) {
+        _navigationController = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+    return _navigationController;
+}
+
 
 @end

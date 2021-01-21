@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		347F06A725B985E900580A20 /* ScreenPoP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347F06A025B985D500580A20 /* ScreenPoP.framework */; };
 		34ABA75422CDEA1A00426395 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA75322CDEA1A00426395 /* AppDelegate.m */; };
 		34ABA75722CDEA1A00426395 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA75622CDEA1A00426395 /* ViewController.m */; };
 		34ABA75A22CDEA1A00426395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34ABA75822CDEA1A00426395 /* Main.storyboard */; };
@@ -15,12 +16,25 @@
 		34ABA76222CDEA1B00426395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA76122CDEA1B00426395 /* main.m */; };
 		34ABA76C22CDEA1B00426395 /* ScreenPoPDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA76B22CDEA1B00426395 /* ScreenPoPDemoTests.m */; };
 		34ABA77722CDEA1B00426395 /* ScreenPoPDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA77622CDEA1B00426395 /* ScreenPoPDemoUITests.m */; };
-		34ABA79322CDEB9500426395 /* ScreenPoP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ABA79222CDEB9500426395 /* ScreenPoP.framework */; };
 		34ABA79622CDECB300426395 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA79522CDECB300426395 /* SecondViewController.m */; };
 		34ABA79922CDECF600426395 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ABA79822CDECF600426395 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		347F069F25B985D500580A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 347F069A25B985D500580A20 /* ScreenPoP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 34B947CA22CC9E0800457EFC;
+			remoteInfo = ScreenPoP;
+		};
+		347F06A125B985D500580A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 347F069A25B985D500580A20 /* ScreenPoP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 34B947D322CC9E0800457EFC;
+			remoteInfo = ScreenPoPTests;
+		};
 		34ABA76822CDEA1B00426395 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34ABA74722CDEA1A00426395 /* Project object */;
@@ -38,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		347F069A25B985D500580A20 /* ScreenPoP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ScreenPoP.xcodeproj; path = ../../ScreenPoP.xcodeproj; sourceTree = "<group>"; };
 		34ABA74F22CDEA1A00426395 /* ScreenPoPDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenPoPDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34ABA75222CDEA1A00426395 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34ABA75322CDEA1A00426395 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34ABA79322CDEB9500426395 /* ScreenPoP.framework in Frameworks */,
+				347F06A725B985E900580A20 /* ScreenPoP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,13 +102,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		347F069B25B985D500580A20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				347F06A025B985D500580A20 /* ScreenPoP.framework */,
+				347F06A225B985D500580A20 /* ScreenPoPTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		347F06A625B985E900580A20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34ABA74622CDEA1A00426395 = {
 			isa = PBXGroup;
 			children = (
+				347F069A25B985D500580A20 /* ScreenPoP.xcodeproj */,
 				34ABA75122CDEA1A00426395 /* ScreenPoPDemo */,
 				34ABA76A22CDEA1B00426395 /* ScreenPoPDemoTests */,
 				34ABA77522CDEA1B00426395 /* ScreenPoPDemoUITests */,
 				34ABA75022CDEA1A00426395 /* Products */,
+				347F06A625B985E900580A20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +268,12 @@
 			mainGroup = 34ABA74622CDEA1A00426395;
 			productRefGroup = 34ABA75022CDEA1A00426395 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 347F069B25B985D500580A20 /* Products */;
+					ProjectRef = 347F069A25B985D500580A20 /* ScreenPoP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				34ABA74E22CDEA1A00426395 /* ScreenPoPDemo */,
@@ -243,6 +282,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		347F06A025B985D500580A20 /* ScreenPoP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ScreenPoP.framework;
+			remoteRef = 347F069F25B985D500580A20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		347F06A225B985D500580A20 /* ScreenPoPTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ScreenPoPTests.xctest;
+			remoteRef = 347F06A125B985D500580A20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		34ABA74D22CDEA1A00426395 /* Resources */ = {

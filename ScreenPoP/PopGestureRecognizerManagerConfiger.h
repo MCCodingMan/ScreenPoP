@@ -16,26 +16,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  导航控制器
  默认为当前window的导航控制器
+ 注：如果window的导航控制器改变，则需要重新设置
  */
-@property (nonatomic, strong) UINavigationController *navagationController;
+@property (nonatomic, strong, nullable) UINavigationController *navigationController;
 
 /**
  拖动时，背景颜色
  默认为0x333333
  */
-@property (nonatomic, retain) UIColor *backGroundColor;
+@property (nonatomic, strong, nullable) UIColor *backGroundColor;
 
 /**
- 背景眼神alpha
+ 背景颜色alpha
  默认为0.5
  */
-@property (nonatomic, assign) float backGroundAlpha;
+@property (nonatomic, assign) CGFloat backGroundAlpha;
 
 /**
  拖动时展示的图片
  必填，否则无图片
  */
-@property (nonatomic, copy) NSString *returnImageName;
+@property (nonatomic, copy, nonnull) NSString *returnImageName;
 
 /**
  用于修改拖动时展示的图片的颜色
@@ -59,13 +60,13 @@ NS_ASSUME_NONNULL_BEGIN
  返回首页拖动时展示的图片
  isCanPopToRootViewController为YES时，必填
  */
-@property (nonatomic, copy) NSString *returnHomeImageName;
+@property (nonatomic, copy, nullable) NSString *returnHomeImageName;
 
 /**
  返回首页用时
  默认为1秒
  */
-@property (nonatomic, assign) int returnHomeTime;
+@property (nonatomic, assign) CGFloat returnHomeTime;
 
 @end
 
